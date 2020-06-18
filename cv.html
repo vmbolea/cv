@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Freelancer - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    
+    <!-- enlace a CSS de Leaflet v. 1.6.0 en la cabecera -->
+    <link rel="stylesheet" href="leaflet_js/leaflet.css" />
+
+    <!-- enlace a JS de Leaflet v. 1.6.0 (justo tras CSS) -->
+    <script src="leaflet_js/leaflet.js"> </script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Curriculúm vitae</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Curriculúm</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Sobre mi</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/terra.png" alt=""width="200">
+                    <div class="intro-text">
+                        <span class="name">Víctor Martínez Bolea</span>
+                        <hr class="star-light">
+                        <span class="skills">Environmental sciences - Landscape ecology - GIScience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Portfolio</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#workexperience" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/work.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#education" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/education.png" class="img-responsive" alt="" >
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#projects" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/projects.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#languages" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/languages.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#technicalskills" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/tskills.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#personalskills" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/pskills.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="col-lg-12 text-center">
+                <h2>Main locations</h2>
+                <hr class="star-primary">
+            </div>
+            <div>
+                <iframe id="bloque_mapa1"  style=" height:600px; width:100%;" scrolling="no"  frameborder="0" src="prueba.html"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Contact Me</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label>Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; Your Website 2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <div class="portfolio-modal modal fade" id="workexperience" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Work experience</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/work.png" class="img-responsive img-centered" alt="">
+                            <p>
+                                <div class="works">
+                                    <h3>DIAMA CONSULTORES | <a style="font-size:80%;">Laboratory analyst</a></h3>
+                                    <a href=https://www.diama.green>
+                                        <img src="img/portfolio/diama.png" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/06/2018 until TODAY </strong></p> 
+                                    <p>The main work stream is the monitoring invasive species as Zebra mussel. Sampling, analyzing and writting reports to public institutions as ETAP Zaragoza, CH Júcar y CH Segura. In addition, other work streams are microbiology analysis or reports about waste management.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Grupo SESÉ Logístico | <a style="font-size:80%;">Route controller</a></h3>
+                                    <a href=https://www.gruposese.com>
+                                        <img src="img/portfolio/sese.jpg" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/06/2017 until 01/06/2018 </strong></p> 
+                                    <p>Truck route controller in Europe.Transmiting information among suppliers in Germany, transport companies and Seat´s factory in Spain.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>BIOMA Consultores | <a style="font-size:80%;">Environmental educator</a></h3>
+                                    <a href=https://www.biomaconsultores.com>
+                                        <img src="img/portfolio/bioma.png" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/03/2017 until 01/06/2017 </strong></p> 
+                                    <p>Creating questionnaire, making a pre-survey among the restaurants, bars and clubs in old town for a municipal campaign to implement of a collaborative recycling system and send reports.</p>
+                                </div>
+                                <div class="works">
+                                  <h3>Kultur Bahnhof | <a style="font-size:80%;">Waiter</a></h3>
+                                  <a href=https://www.kuba-hgw.de>
+                                      <img src="img/portfolio/kuba.jpg" width="200">
+                                  </a>
+                                  <p><strong>Greifswald (Germany) | From 01/07/2016 until 01/11/2016 </strong></p> 
+                                  <p>Catering works as waiter, kitchen helper and dishwasher.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Domino´s Pizza | <a style="font-size:80%;">Delivery</a></h3>
+                                    <a href=https://www.dominos.de>
+                                        <img src="img/portfolio/dominos.png" width="200">
+                                    </a>
+                                    <p><strong>Greifswald (Germany) | From 01/12/2015 until 01/04/2016 </strong></p> 
+                                    <p>Delivering pizza and drinks by bike.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Schwalbe II | <a style="font-size:80%;">Barman</a></h3>
+                                    <a href=https://schwalbe2.eatbu.com>
+                                        <img src="img/portfolio/schwalbeII.jpg" width="200">
+                                    </a>
+                                    <p><strong>Greifswald (Germany) | From 01/07/2015 until 01/09/2015 </strong></p> 
+                                    <p>Mainly preparing drinks as beers, soft drinks and cocktails.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Universität Greifswald | <a style="font-size:80%;">Assistant</a></h3>
+                                    <a href=https://www.uni-greifswald.de>
+                                        <img src="img/portfolio/uni.jpg" width="200">
+                                    </a>
+                                    <p><strong>Greifswald (Germany) | From 01/05/2015 until 01/06/2015 </strong></p> 
+                                    <p>Helping to the organization staff of the Alumni conference which was celebrated in 2015. Given support in the daily life to the participants in the conference.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Amazon | <a style="font-size:80%;">Receive worker</a></h3>
+                                    <a href=https://www.amazon.de>
+                                        <img src="img/portfolio/amazon.png" width="200">
+                                    </a>
+                                    <p><strong>Bad Hersfeld (Germany) | From 01/10/2012 until 01/05/2014 </strong></p> 
+                                    <p>My departament works in the inbound area where the ware is receive, registered and stored in the warehouse.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>Confederación Hidrográfica del Ebro | <a style="font-size:80%;">Intern</a></h3>
+                                    <a href=http://www.chebro.es>
+                                        <img src="img/portfolio/che.png" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/07/2011 until 01/09/2011 </strong></p> 
+                                    <p>Inventory of the water intakes placing in the Reserva Natural de los Sotos y Galachos del Ebro and their danger level for the local avifauna depending on their type of power supply.</p>
+                                </div>
+                                <div class="works">
+                                    <h3>La Zaragozana | <a style="font-size:80%;">Storekepper</a></h3>
+                                    <a href=https://www.ambar.com>
+                                        <img src="img/portfolio/ambar.jpg" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/07/2008 until 01/09/2008 </strong></p> 
+                                    <p>Working at the end of the bottling chain storing the products.</p>
+                                </div></p>
+                            <ul class="list-inline item-details">
+                                <li>Web adapted by:
+                                    <strong><a>Víctor Martínez Bolea</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a>April 2020</a>
+                                    </strong>
+                                </li>
+                                <li>Web created by:
+                                    <strong><a href="http://startbootstrap.com">Startbootstrap</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="education" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Education</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/education.png" class="img-responsive img-centered" alt="">
+                            <p>
+                                <div class="education">
+                                    <h3> Master´s in Geographic Information Science and Technology for Land Management: Geographic Information Systems and Remote Sensing
+                                        <br>
+                                        <a style="font-size:80%;">University of Zaragoza</a>
+                                    </h3> 
+                                    <a href=https://estudios.unizar.es/estudio/ver?id=608>
+                                        <img src="img/portfolio/unizar.png" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/10/2019 until TODAY </strong></p> 
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="education">
+                                    <h3> Master of Science Landscape Ecology and Nature Conservation
+                                        <br>
+                                        <a style="font-size:80%;">University of Greifswald</a>
+                                    </h3> 
+                                    <a href=https://biologie.uni-greifswald.de/en/teaching/study-courses-leading-to-a-master-of-science-degree/msc-landscape-ecology-and-nature-conservation/>
+                                        <img src="img/portfolio/greifswald.png" width="200">
+                                    </a>
+                                    <p><strong>Greifswald (Germany) | From 01/10/2014 until 01/03/2017 </strong></p> 
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="education">
+                                    <h3> Degree in Environmental Sciences
+                                        <br>
+                                        <a style="font-size:80%;">University of Zaragoza</a>
+                                    </h3> 
+                                    <a href=http://eps.unizar.es/en/degree-environmental-sciences>
+                                        <img src="img/portfolio/unizar.png" width="200">
+                                    </a>
+                                    <p><strong>Zaragoza (Spain) | From 01/10/2008 until 01/09/2012 </strong></p> 
+                                </div>
+                            </p>
+                            <ul class="list-inline item-details">
+                                <li>Web adapted by:
+                                    <strong><a>Víctor Martínez Bolea</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a>April 2020</a>
+                                    </strong>
+                                </li>
+                                <li>Web created by:
+                                    <strong><a href="http://startbootstrap.com">Startbootstrap</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="projects" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Projects</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/project.png" class="img-responsive img-centered" alt="">
+                            <p>
+                                <div class="projects">
+                                    <h3> Estimating the willingness to pay to preserve Ili Delta: A contingent valuation study in Almaty City, Kazakhstan
+                                        <br>
+                                        <a style="font-size:80%;">University of Greifswald
+                                        </a>
+                                    </h3> 
+                                    <p>
+                                        <img src="img/portfolio/ili.jpg" width="500">  
+                                    </p>      
+                                    <p>
+                                        <a href="https://drive.google.com/open?id=0B-rpNcnxE03UV1hDTS1PaVdPWldhYXN2UlEyOWhNOHRYMERn"
+                                            >Click here to read the project.
+                                        </a>
+                                    </p>
+                                    <p><strong>Tutor 
+                                        <a href="https://rsf.uni-greifswald.de/lehrstuehle/wiwi/avwl/lehrstuhl-beckmann/personen/prof-dr-volker-beckmann-lehrstuhlinhaber/">Prof. Dr. Volker Beckmann
+                                        </a> | From 01/02/2016 until 01/03/2017 </strong>
+                                    </p> 
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="projects">
+                                    <h3> Comparison of environmental characteristics and ecological value between technical reclamation and spontaneous succession on post-mining areas in Czech Republic
+                                        <br>
+                                        <a style="font-size:80%;">Czech University of Life Sciences Prague and University of Zaragoza
+                                        </a>
+                                    </h3> 
+                                    <p>
+                                        <img src="img/portfolio/most.png" width="500">  
+                                    </p>      
+                                    <p>
+                                        <a href="https://zaguan.unizar.es/record/9151#"
+                                            >Click here to read the project.
+                                        </a>
+                                    </p>
+                                    <p><strong>Tutor 
+                                        <a href="http://wp.czu.cz/cs/index.php/?r=1071&mp=person.info&idClovek=2622">Doc. Ing. Jiří Vojar, Ph.D.
+                                        </a> and Supervisor 
+                                        <a href="https://dcamn.unizar.es/personal/jose-manuel-nicolau-ibarra">Jose Manuel Nicolau
+                                        </a>
+                                        <br>
+                                        | From 01/10/2011 until 01/09/2012 </strong>
+                                    </p> 
+                                </div>
+                            </p>
+                            <ul class="list-inline item-details">
+                                <li>Web adapted by:
+                                    <strong><a>Víctor Martínez Bolea</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a>April 2020</a>
+                                    </strong>
+                                </li>
+                                <li>Web created by:
+                                    <strong><a href="http://startbootstrap.com">Startbootstrap</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="languages" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>languages</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/languages.png" class="img-responsive img-centered" alt="">
+                            <p>
+                                <div class="languages">
+                                    <h3> ENGLISH
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/english.png" width="400"> 
+                                    <br>
+                                    <p> From the most recent to oldest...
+                                    </p>
+                                    <br> 
+                                    <a href=https://eoi1zaragoza.org>
+                                        <img src="img/portfolio/eoi.png" width="200">
+                                    </a>    
+                                    <p><strong> Zaragoza (Spain) | Advanced Level B2 | 13/12/2017 </strong>
+                                    </p> 
+                                    <br>
+                                    <a href=https://www.ets.org>
+                                        <img src="img/portfolio/toefl.jpg" width="200">
+                                    </a>    
+                                    <p><strong> Bad Hersfeld (Germany) | TOEFL Test | 22/04/2014 </strong>
+                                    </p> 
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="languages">
+                                    <h3> GERMAN
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/german.jpg" width="400"> 
+                                    <br>
+                                    <p> From the most recent to oldest...
+                                    </p>
+                                    <br> 
+                                    <a href=https://www.telc.net>
+                                        <img src="img/portfolio/telc.svg" width="200">
+                                    </a>    
+                                    <p><strong> Greifswald (Germany) | Deutsch B2 Oral | 20/01/2017 </strong>
+                                    </p> 
+                                    <br>
+                                    <a href=https://www.telc.net>
+                                        <img src="img/portfolio/telc.svg" width="200">
+                                    </a>    
+                                    <p><strong> Greifswald (Germany) | Deutsch B1 Writing | 11/12/2015 </strong>
+                                    </p> 
+                                </div>
+                                <ul class="list-inline item-details">
+                                    <li>Web adapted by:
+                                        <strong><a>Víctor Martínez Bolea</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong><a>April 2020</a>
+                                        </strong>
+                                    </li>
+                                    <li>Web created by:
+                                        <strong><a href="http://startbootstrap.com">Startbootstrap</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="technicalskills" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Technical skills</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/tskills.png" class="img-responsive img-centered" alt="">
+                            <p>
+                                <div class="tskills">
+                                    <h3> Office IT 
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/ofimatica.jpg" width="200"> 
+                                    <br>
+                                    <p><strong> Excell |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Word |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Power Point |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Access |</strong> Advanced Level
+                                    </p>
+                                </div>
+                                <div class="tskills">
+                                    <h3> Lab skills
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/lab.png" width="200"> 
+                                    <br>
+                                    <p><strong> Optical microscope |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Bacterial culture |</strong> Intermediate Level
+                                    </p>
+                                    <p><strong> Analytical skills |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Time management |</strong> Advanced Level
+                                    </p>
+                                </div>
+                                <div class="tskills">
+                                    <h3> Field work
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/field.jpg" width="200"> 
+                                    <br>
+                                    <p><strong> Independence |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Orientation |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> Water sampling |</strong> Advanced Level
+                                    </p>
+                                </div>
+                                <div class="tskills">
+                                    <h3> GIS Software
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/gis.jpg" width="200"> 
+                                    <br>
+                                    <p><strong> ArcGIS |</strong> Advanced Level
+                                    </p>
+                                    <p><strong> QGIS |</strong> Advanced Level
+                                    </p>
+                                </div>
+                                <div class="tskills">
+                                    <h3> Programming
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/progra.jpg" width="200"> 
+                                    <br>
+                                    <p><strong> Html5 |</strong> Intermediate Level
+                                    </p>
+                                    <p><strong> JAVA |</strong> Beginner Level
+                                    </p>
+                                    <p><strong> Phyton |</strong> Beginner Level
+                                    </p>
+                                </div>
+                                <div class="tskills">
+                                    <h3> Statistical Software
+                                    </h3>
+                                    <br>
+                                    <img src="img/portfolio/statistics.png" width="200"> 
+                                    <br>
+                                    <p><strong> SPSS |</strong> Intermediate Level
+                                    </p>
+                                    <p><strong> R |</strong> Beginner Level
+                                    </p>
+                                    <p><strong> STATA |</strong> Beginner Level
+                                    </p>
+                                </div>
+                                <ul class="list-inline item-details">
+                                    <li>Web adapted by:
+                                        <strong><a>Víctor Martínez Bolea</a>
+                                        </strong>
+                                    </li>
+                                    <li>Date:
+                                        <strong><a>April 2020</a>
+                                        </strong>
+                                    </li>
+                                    <li>Web created by:
+                                        <strong><a href="http://startbootstrap.com">Startbootstrap</a>
+                                        </strong>
+                                    </li>
+                                </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-modal modal fade" id="personalskills" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Personal skills</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/pskills.png" class="img-responsive img-centered" alt="">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>
