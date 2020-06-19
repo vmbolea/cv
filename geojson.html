@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cargando capas GeoJSON en Leaflet</title>
+    <meta charset="utf-8" />
+
+    <!-- enlace a CSS de Leaflet v. 1.6.0 en la cabecera -->
+    <link rel="stylesheet" href="leaflet_js/leaflet.css"/>
+
+    <!-- enlace a JS de Leaflet v. 1.6.0 (justo tras CSS) -->
+    <script src="leaflet_js/leaflet.js"></script>
+</head>
+
+<body>
+
+<h2>Proceso de urbanización en Aragón</h2>
+
+<p>Variación de la dendsidad de población a nivel municipal (hab/km<sup>2</sup>) </p>
+
+<!-- bloque dónde aparecerá el mapa -->
+<div id="bloque_mapa0" 
+    style="width: 550px; height: 650px;">
+</div>
+
+<!-- cargar javascript (objeto GeoJSON transformado) -->
+<script src="layers/densidad.geojson"></script>
+
+<script src="layers/porcentaje.geojson"></script>
+
+<!-- Aqui incluyo código JS de Leaflet -->
+
+<script>
+
+// definimos el mapa como una variable y le ajustamos dónde lo queremos ver
+
+var mapa1 = L.map('bloque_mapa0').setView([41.5, -0.6], 8); // Fijamos la vista de mapa en Aragón
+
+// Mapa de base TMS OpenStreetMap
+
+var OSM_mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // tiles
+    {maxZoom: 30, // Zoom maximo
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' //atribuciones de autoria
+    });
+
+OSM_mapnik.addTo(mapa1) // Lo añadimos al mapa
+
+// Creando la paleta de color con la funcion getcolor
+
+var color_d = function getColor(d) { // Se crea la funcion color de densidad
+    return d > 50   ? '#cc0000' :    // Se otorgan segun el valor un color 
+           d > 20   ? '#dd6e6e' :
+           d > 0    ? '#cccccc' :
+           d > -50  ? '#176dae' :
+           d > -2060 ? '#032f60':
+                      '#757d78';
+}
+
+// Creación de variables de estilo a partir de la funcion estilo
+
+var style_00_40 = function style(feature) { // creacion de la variable e introduccion de la funcion
+    return {
+        fillColor: color_d(feature.properties.Var_00_40), // Rellenar color con los valores de propiedad determinada
+        weight: 1.5,   // anchura de linea
+        opacity: 1,    // opacidad de linea
+        color: 'white', // color de linea
+        dashArray: '3', // tipo de linea
+        fillOpacity: 0.7 // opacidad del relleno
+    };
+}
+
+// Se repite la operacion para las propiedades siguientes creando sus propios estilos
+
+var style_40_81 = function style(feature) {
+    return {
+        fillColor: color_d(feature.properties.Var_40_81),
+        weight: 1.5,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+var style_81_19 = function style(feature) {
+    return {
+        fillColor: color_d(feature.properties.Var_81_19),
+        weight: 1.5,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+// Se crean la variables layer geojson con los estilos preprados y se añaden al mapa
+
+var densidad_00_40 = L.geoJson(densidad, {style: style_00_40}).addTo(mapa1);
+var densidad_40_81 = L.geoJson(densidad, {style: style_40_81}).addTo(mapa1);
+var densidad_81_19 = L.geoJson(densidad, {style: style_81_19}).addTo(mapa1);
+
+
+// INICIO de código de Control de capas
+
+// CAPAS BASE - que puedo intercambiar
+ var baseMaps = {                  // variable con apartado de mapas base
+    "OpenStreetMap": OSM_mapnik,  // elemento a incluir y descripción
+    };
+
+// Capas del proyecto que puedo activar y desactivar
+var overlayMaps = {              // apartado de capas
+    "Variación de la densidad de población 1900-1940": densidad_00_40, // elemento a incluir y descripción
+    "Variación de la densidad de población 1940-1981": densidad_40_81,     
+    "Variación de la densidad de población 1981-2019": densidad_81_19
+    };
+
+// Ahora genero el control de las capas
+ var capas = L.control.layers(   // variable con control de capas
+     baseMaps,                     // añadiendo capas base
+     overlayMaps,                  // añadiendo capas
+     {collapsed:true,              // control desplegado
+     hideSingleBase:true          // esconder base (solo hay una) 
+     }).addTo(mapa1);           
+
+ // Y lo cargo a mi mapa
+              // añadimos control de capas al mapa
+
+
+// ESCALA del mapa (formato abreviado)
+ var escala = L.control.scale({
+     imperial:false,             // suprimir escala imperial
+     position:'topleft'          // posición arriba a la izquierda
+     }).addTo(mapa1);
+
+
+</script>
