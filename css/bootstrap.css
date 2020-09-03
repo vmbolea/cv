@@ -6,6 +6,8 @@
  * Based on Bootstrap
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/*! Aquí estan los estilos de la plantilla y no se ha modificado nada */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -80,6 +82,17 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
+.copy-left {
+  display: inline-block;
+  text-align: right;
+  margin: 0px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  }
 sup {
   top: -0.5em;
 }
