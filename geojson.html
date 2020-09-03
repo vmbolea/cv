@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cargando capas GeoJSON en Leaflet</title>
+    <meta charset="utf-8" />
+
+    <!-- enlace a CSS de Leaflet v. 1.6.0 en la cabecera -->
+    <link rel="stylesheet" href="leaflet_js/leaflet.css"/>
+    <!-- enlace a CSS de Leaflet v. 1.6.0 en la cabecera -->
+    <link rel="stylesheet" href="leaflet_js/leyenda.css"/>
+
+    <!-- enlace a JS de Leaflet v. 1.6.0 (justo tras CSS) -->
+    <script src="leaflet_js/leaflet.js"></script>
+     <!-- enlace a JS de Leaflet v. 1.6.0 (justo tras CSS) -->
+     <script src="leaflet_js/leaflet.groupedlayercontrol.js"></script>
+    
+    
+    <!--<script src="https://rawgithub.com/ismyrnow/Leaflet.groupedlayercontrol/master/src/leaflet.groupedlayercontrol.js"></script>-->
+
+</head>
+
+<body>
+
+<h2>Proceso de urbanización en Aragón</h2>
+
+<p>Variación de la dendsidad de población a nivel municipal (hab/km<sup>2</sup>) </p>
+
+<!-- bloque dónde aparecerá el mapa -->
+<div id="bloque_mapa0" 
+    style="width: 850px; height: 650px;">
+</div>
+
+<!-- cargar javascript (objeto GeoJSON transformado) -->
+<script src="layers/densidad.geojson"></script>
+
+<script src="layers/porcentaje.geojson"></script>
+
+<!-- Aqui incluyo código JS de Leaflet -->
+
+<script>
+
+// definimos el mapa como una variable y le ajustamos dónde lo queremos ver
+
+var mapa1 = L.map('bloque_mapa0').setView([41.5, -0.6], 8); // Fijamos la vista de mapa en Aragón
+
+// Mapa de base TMS OpenStreetMap
+
+var OSM_mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', // tiles
+    {maxZoom: 30, // Zoom maximo
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' //atribuciones de autoria
+    });
+
+OSM_mapnik.addTo(mapa1) // Lo añadimos al mapa
+
+// Creando la paleta de color con la funcion getcolor
+
+    // control that shows state info on hover
+var info = L.control({
+    position: 'topright'
+    });
+
+    info.onAdd = function(mapa1) {
+      this._div = L.DomUtil.create("div", "info");
+      this.update();
+      return this._div;
+    };
+
+    info.update = function(props) {
+      this._div.innerHTML =
+        "<h4>Variación de la densidad de población</h4>" +
+        (props
+          ? "<b>" +
+            props.d_muni_ine +
+            "</b><br />De 1900 a 1940: " +
+            props.Var_00_40 +
+            " personas / km<sup>2</sup>" +
+            "</b><br />De 1940 a 1981: " +
+            props.Var_40_81 +
+            " personas / km<sup>2</sup>" +
+            "</b><br />De 1981 a 2019: " +
+            props.Var_80_19 +
+            " personas / km<sup>2</sup>"
+          : "Poner el cursor sobre un municipio");
+    };
+
+info.addTo(mapa1);
+
+
+function DenColor(d) {
+ return d > 50    ? '#9E0142' :
+        d > 20    ? '#E2524A' :
+        d > 5     ? '#FCA55D' :
+        d > 0     ? '#FEE99A' :
+        d > -5    ? '#EDF8A3' :    
+        d > -10   ? '#A1D9A4' :
+        d > -20   ? '#48A1B3' :
+        d > -9999 ? '#5E4FA2' :
+                    '#f7f7f7';
+}
+
+
+// Creación de variables de estilo a partir de la funcion estilo
+
+var style_00_40 = function style(feature) { // creacion de la variable e introduccion de la funcion
+    return {
+        fillColor: DenColor(feature.properties.Var_00_40), // Rellenar color con los valores de propiedad determinada
+        weight: 1.5,   // anchura de linea
+        opacity: 1,    // opacidad de linea
+        color: 'white', // color de linea
+        dashArray: '3', // tipo de linea
+        fillOpacity: 0.8 // opacidad del relleno
+    };
+}
+function highlightFeature(e) {
+      var layer = e.target;
+
+      layer.setStyle({
+        weight: 1.5,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+      }
+
+      info.update(layer.feature.properties);
+    }
+
+var densidad_00_40;
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+    densidad_00_40 = L.geoJson(densidad, {
+        style: style_00_40,
+      onEachFeature: onEachFeature
+    }).addTo(mapa1);
+
+
+
+// Se repite la operacion para las propiedades siguientes creando sus propios estilos
+
+var style_40_81 = function style(feature) {
+    return {
+        fillColor: DenColor(feature.properties.Var_40_81),
+        weight: 1.5,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+var densidad_40_81;
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    densidad_40_81 = L.geoJson(densidad, {
+        style: style_40_81,
+      onEachFeature: onEachFeature
+    }).addTo(mapa1);
+
+
+
+
+var style_81_19 = function style(feature) {
+    return {
+        fillColor: DenColor(feature.properties.Var_80_19),
+        weight: 1.5,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+var densidad_81_19;
+
+    function resetHighlight(e) {
+      geojson.resetStyle(e.target);
+      info.update();
+    }
+
+    function zoomToFeature(e) {
+      map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      });
+    }
+
+    densidad_81_19 = L.geoJson(densidad, {
+        style: style_81_19,
+      onEachFeature: onEachFeature
+    }).addTo(mapa1);
+
+// Se crean la variables layer geojson con los estilos preprados y se añaden al mapa
+
+
+
+// INICIO de código de Control de capas
+
+// CAPAS BASE - que puedo intercambiar
+ var baseLayers = {                  // variable con apartado de mapas base
+    "OpenStreetMap": OSM_mapnik,  // elemento a incluir y descripción
+    };
+
+// Capas del proyecto que puedo activar y desactivar
+var groupedOverlays = {
+    "Periodo": {             // apartado de capas
+    "de 1900 a 1940": densidad_00_40, // elemento a incluir y descripción
+    "de 1940 a 1981": densidad_40_81,     
+    "de 1981 a 2019": densidad_81_19
+}  
+};
+
+var options = {
+      // Make the "Landmarks" group exclusive (use radio inputs)
+      exclusiveGroups: ["Periodo"],
+      // Show a checkbox next to non-exclusive group labels for toggling all
+      groupCheckboxes: false
+    };
+
+
+// Ahora genero el control de las capas
+ var capas = L.control.groupedLayers(   // variable con control de capas
+     baseLayers,                     // añadiendo capas base
+     groupedOverlays,
+     options,                  // añadiendo capas
+     {collapsed:true,              // control desplegado
+     hidebaseLayers:true          // esconder base (solo hay una) 
+     }).addTo(mapa1);           
+
+ // Y lo cargo a mi mapa
+              // añadimos control de capas al mapa
+
+
+// ESCALA del mapa (formato abreviado)
+ var escala = L.control.scale({
+     imperial:false,             // suprimir escala imperial
+     position:'topleft'          // posición arriba a la izquierda
+     }).addTo(mapa1);
+
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (mapa1) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [-20, -10, -5, 5, 20, 50],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + DenColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(mapa1);
+
+</script>
